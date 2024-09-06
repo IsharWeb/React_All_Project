@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 
 
-const TodoForm = (e) => {
-    e.preventDefault();
+const TodoForm = () => {
+    // e.preventDefault();
     const [todo , setTodo] = useState();
     const {AddTodo} = useTodo()
     
-    const addtodo = () => {
+    const addtodo = (e) => {
        e.preventDefault()
 
     if (!todo) return
@@ -22,9 +22,9 @@ const TodoForm = (e) => {
    
     return (
         <>
-        <form onSubmit={addtodo}>
+        {/* <form onSubmit={addtodo}>
 
-        <h1>TOdo From Form</h1>
+        <h2>Add Todos</h2>
         <input 
         type="text"
         placeholder="Add Your Todo"
@@ -34,6 +34,22 @@ const TodoForm = (e) => {
         />
 
          <button type="submit">submit</button>
+        </form> */}
+
+
+
+
+
+
+        <form  className="flex">
+            <input
+                type="text"
+                placeholder="Write Todo..."
+                className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
+            />
+            <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
+                Add
+            </button>
         </form>
         </>
     )

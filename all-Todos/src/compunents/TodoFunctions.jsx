@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useSyncExternalStore } from "react";
-import { TodoContext, TodoProvider } from "../context/TodoContext";
+import { TodoProvider } from "../context/TodoContext";
 import TodoForm from "./TodoForm";
 import TodoItems from "./TodoItems";
 // import {TodoForm , TodoItems} from './Index'
@@ -8,6 +8,8 @@ function TodoFunctions() {
 
     const AddTodo = (TodoText) => {
         setToDos((oldtodos) => [{ id: Date.now(), ...TodoText }, ...oldtodos]);
+        console.log(TodoText.id);
+        
     };
 
     const UpdateTodo = (id, TodoText) => {
@@ -19,13 +21,15 @@ function TodoFunctions() {
     };
 
     const CompleteTodo = (id, Checked) => {
+        console.log(`My id is ${id} and the checkbox value is ${Checked}`);
+        
+        setToDos((oldtodos) => oldtodos.map((newChecked) => newChecked.id === id ? { ...newChecked, Checked: !newChecked.Checked } : newChecked))
+        
+        
+        // self Explanation 
+        
         //   setToDos((oldtodos) => [{id: Date.now() , Checked: true},...oldtodos] )
         //   setToDos((oldtodos) => [oldtodos.map((newChecked) => Checked: !newChecked.Checked)])
-
-        setToDos((oldtodos) => oldtodos.map((newChecked) => newChecked.id === id ? { ...newChecked, Checked: !newChecked.Checked } : newChecked))
-
-
-        // self Explanation 
 
 
         // setToDos((oldtodos) => {
@@ -35,8 +39,8 @@ function TodoFunctions() {
 
         //             if (toggleVal.id === id) {
 
-        //                const toggleVal = { ...toggleVal, Checked: !toggleVal.Checked }
-        //                 return toggleVal
+        //                return toggleVal = { ...toggleVal, Checked: !toggleVal.Checked }
+                        
 
         //             } else {
 
@@ -72,12 +76,22 @@ function TodoFunctions() {
         <TodoProvider value={
             { AddTodo, UpdateTodo, DeleteTodo, CompleteTodo }
         }>
-            <h1>Manage your Todos</h1>
-            <div>
+            
+
+
+
+
+
+            
+            <div className="bg-[#172842] min-h-screen py-8">
+                <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+                    <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+                    <div className="mb-4">
+                        {/* Todo form goes here */} 
                 <TodoForm />
-            </div>
-            <br />
-            <div>
+                    </div>
+                    <div className="flex flex-wrap gap-y-3">
+                        {/*Loop and Add TodoItem here */}
                 {
                     toDos.map((todo) => (
                         <div key={todo.id}>
@@ -85,6 +99,8 @@ function TodoFunctions() {
                         </div>
                     ))
                 }
+                    </div>
+                </div>
             </div>
         </TodoProvider>
 
