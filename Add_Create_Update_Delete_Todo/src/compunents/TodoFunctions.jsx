@@ -9,7 +9,7 @@ function TodoFunctions() {
     const AddTodo = (TodoText) => {
         setToDos((oldtodos) => [{ id: Date.now(), ...TodoText }, ...oldtodos]);
         console.log(TodoText.id);
-        
+
     };
 
     const UpdateTodo = (id, TodoText) => {
@@ -20,14 +20,14 @@ function TodoFunctions() {
         setToDos((oldtodos) => oldtodos.filter((dletodo) => dletodo.id !== id))
     };
 
-    const CompleteTodo = (id, Checked) => {
-        console.log(`My id is ${id} and the checkbox value is ${Checked}`);
-        
-        setToDos((oldtodos) => oldtodos.map((newChecked) => newChecked.id === id ? { ...newChecked, Checked: !newChecked.Checked } : newChecked))
-        
-        
+     const CompleteTodo = (id, Checked) => {
+         
+         setToDos((oldtodos) => oldtodos.map((newChecked) => newChecked.id === id ? { ...newChecked, Checked: !newChecked.Checked } : newChecked))
+         
+         console.log(`My id is ${id} and the checkbox value is ${Checked}`);
+
         // self Explanation 
-        
+
         //   setToDos((oldtodos) => [{id: Date.now() , Checked: true},...oldtodos] )
         //   setToDos((oldtodos) => [oldtodos.map((newChecked) => Checked: !newChecked.Checked)])
 
@@ -40,7 +40,7 @@ function TodoFunctions() {
         //             if (toggleVal.id === id) {
 
         //                return toggleVal = { ...toggleVal, Checked: !toggleVal.Checked }
-                        
+
 
         //             } else {
 
@@ -55,20 +55,20 @@ function TodoFunctions() {
     useEffect(() => {
 
         const storetodos = JSON.parse(localStorage.getItem("storeTodos"));
-        
+
         if (storetodos && storetodos.length > 0) {
-             
+
             setToDos(storetodos)
 
         }
-           
+
     }, []);
 
     useEffect(() => {
-     
-        localStorage.setItem("storeTodos" , JSON.stringify(toDos))
 
-    } , [toDos])
+        localStorage.setItem("storeTodos", JSON.stringify(toDos))
+
+    }, [toDos])
 
 
 
@@ -76,29 +76,23 @@ function TodoFunctions() {
         <TodoProvider value={
             { AddTodo, UpdateTodo, DeleteTodo, CompleteTodo }
         }>
-            
 
-
-
-
-
-            
-            <div className="bg-[#172842] min-h-screen py-8">
+            <div className="bg-[#172842]  min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
                     <div className="mb-4">
-                        {/* Todo form goes here */} 
-                <TodoForm />
+                        {/* Todo form goes here */}
+                        <TodoForm />
                     </div>
-                    <div className="flex flex-wrap gap-y-3">
+                    <div className="flex flex-wrap gap-y-3 justify-center  ">
                         {/*Loop and Add TodoItem here */}
-                {
-                    toDos.map((todo) => (
-                        <div key={todo.id}>
-                            <TodoItems todo={todo} />
-                        </div>
-                    ))
-                }
+                        {
+                            toDos.map((todo) => (
+                                <div key={todo.id}>
+                                    <TodoItems todo={todo} />
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

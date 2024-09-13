@@ -4,7 +4,7 @@ export const TodoContext = createContext({
     todos: [{
         id: 1,
         TodoText: 'Todo Text',
-        Checked: false
+        Checked: false ,
     }
 
     ],
@@ -14,7 +14,7 @@ export const TodoContext = createContext({
 
     DeleteTodo: (id) => { },
 
-    CompleteTodo: (id , Checked) => { },
+    CompleteTodo: (id, Checked) => { },
 });
 
 export const useTodo = () => {

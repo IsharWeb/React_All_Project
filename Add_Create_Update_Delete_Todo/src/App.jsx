@@ -1,11 +1,11 @@
 import './App.css'
-import TodoFunctions from './compunents/TodoFunctions'
-
+import TodoFunctions from './compunents/TodoFunctions';
 function App() {
 
   return (
     <>
     <TodoFunctions />
+    
     </>
   )
 }
