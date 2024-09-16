@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import AddTodo from './compunents/AddTodo'
+import DeleteTodo from './compunents/DeleteTodo'
 
 import './App.css'
 
@@ -6,7 +7,12 @@ function App() {
 
   return (
     <>
-      <h1 className='text-white h-screen w-full bg-black '>Helo Redux tolket</h1>
+    <div className='bg-black h-screen w-full text-white p-24'>
+     <AddTodo />
+     <br />
+     <DeleteTodo />
+    </div>
+
     </>
   )
 }
