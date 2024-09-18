@@ -1,14 +1,18 @@
-import {useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 function useCurrencyHooks(currency) {
+
     const [apiData, setapiData] = useState({})
 
     useEffect(() => {
-        let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`
-        
-        url.then((data) => data.json())
-        .then((data) => setapiData(data[currency]))
-    },[currency])
+        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
+            .then((data) => data.json())
+            .then((data) => setapiData(data[currency]))
+        console.log(apiData);
+
+    }, [currency])
+    console.log(apiData);
+
 
     return apiData
 }

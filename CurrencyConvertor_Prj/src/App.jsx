@@ -1,10 +1,10 @@
 import './App.css'
-
+import CurrencyFun from './conpunets/CurrencyFun'
 function App() {
 
   return (
    <>
-   <h1 className='bg-black p-10 text-white'>Hello World</h1>
+    <CurrencyFun />
    </>
   )
 }
