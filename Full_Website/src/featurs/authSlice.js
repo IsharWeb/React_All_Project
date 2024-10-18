@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { auth, configureStore } from '../appwrite'
 
 // create initial State
 const initialState = {
