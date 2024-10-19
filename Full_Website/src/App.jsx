@@ -2,6 +2,8 @@ import { authService } from './appwrite/auth'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { login, logout } from './featurs/authSlice'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
 function App() {
 
   // start loding fun
