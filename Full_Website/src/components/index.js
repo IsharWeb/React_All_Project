@@ -6,10 +6,18 @@ import Input from './Input'
 import Post from './Post'
 import Select from './Select'
 import Login from './Login'
-import Logo from './Logo'
+import AuthLayout from './AuthLayout'
+import PostFrom from './Postfrom/PostFrom'
+import SingUp from './SingUp'
+import RTE from './RTE'
+
+
 
 export default {
-
+     SingUp,
+     RTE,
+     AuthLayout,
+     PostFrom,
      Header,
      Footer,
      Container,
