@@ -3,8 +3,13 @@ import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { login, logout } from './featurs/authSlice'
 import Footer from './components/Footer/Footer'
+import conf from './config/conf'
 import Header from './components/Header/Header'
 function App() {
+
+//  console.log("Appwrite URL:", conf.appwriteUrl);
+//  console.log("Appwrite Project ID:", conf.appwriteProjectId);
+
 
   // start loding fun
   const [loding, setLoding] = useState(true);
@@ -12,7 +17,7 @@ function App() {
 
   useEffect(() => {
 
-    authService.gerCorrentUser()
+    authService.getCorrentUser()
       .then((userData) => {
 
         if (userData) {
@@ -25,8 +30,8 @@ function App() {
 
         }
 
-      })
-      .finally(() => setLoding(false))
+      }
+    ).finally(() => setLoding(false))
 
   }, [])
 
