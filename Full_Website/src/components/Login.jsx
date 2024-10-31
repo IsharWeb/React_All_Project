@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Input, Logo } from './index'
+// import {  Input, Logo } from './index'
+import Button from "./Button";
+import Input from "./Input";
+import Logo from "./Logo";
 import { login as authLogin } from "../featurs/authSlice";
 import { useDispatch } from "react-redux";
 import authService from '../appwrite/auth'
 import { useForm } from 'react-hook-form'
-
-// hooks
-const dispatch = useDispatch();
-const navigate = useNavigate();
-const { register, handleSubmit } = useForm();
-const [error, setErroe] = useState('');
 
 // login fun
 function Login() {

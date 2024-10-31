@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import authService from '../appwrite/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../featurs/authSlice.js'
-import { Button, Input, Logo } from './index.js'
+import Button from './Button.jsx'
+import authService from '../appwrite/auth.js'
+// import authService from '../appwrite/auth'
+// import { Button, Input, Logo } from './index.js'
+import Input from './Input.jsx'
+import Logo from './Logo.jsx'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-function Signup() {
+export function SignUp() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const dispatch = useDispatch()
@@ -86,4 +90,3 @@ function Signup() {
     )
 }
 
-export default Signup

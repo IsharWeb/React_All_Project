@@ -8,13 +8,12 @@ import Select from './Select'
 import Login from './Login'
 import AuthLayout from './AuthLayout'
 import PostFrom from './Postfrom/PostFrom'
-import SingUp from './SingUp'
+//import SingUp from './SingUp'
 import RTE from './RTE'
 
 
 
 export default {
-     SingUp,
      RTE,
      AuthLayout,
      PostFrom,

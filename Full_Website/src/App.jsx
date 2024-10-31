@@ -1,4 +1,4 @@
-import { authService } from './appwrite/auth'
+import authService from './appwrite/auth'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { login, logout } from './featurs/authSlice'
@@ -36,6 +36,7 @@ function App() {
         <Header />
         <main>
           todo: {/* <Outlet /> */}
+          {/* <p>On October 27, 2024, Vice President Kamala Harris spoke at a big rally in Philadelphia, Pennsylvania. She touched on key issues facing the nation and rallied supporters as the election nears. It’s a reminder that these rallies give us insight into each candidate's focus and priorities. Did you catch her speech? What did you think?</p> */}
         </main>
         <Footer />
       </div>
