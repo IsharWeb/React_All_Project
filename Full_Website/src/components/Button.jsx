@@ -1,7 +1,6 @@
 import React from "react";
 
-// Btn Props
- function Button({
+export default function Button({
     children,
     type = "button",
     bgColor = "bg-blue-600",
@@ -15,5 +14,3 @@ import React from "react";
         </button>
     );
 }
-
-export default Button

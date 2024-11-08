@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import appwriteService from "../appwrite/configuration";
-// import { Container, PostCard } from '../components'
-import Container from '../components/Container/Container';
-import Post from '../components/Post';
+import React, {useEffect, useState} from 'react'
+import appwriteService from "../appwrite/config";
+import {Container, PostCard} from '../components'
 
 function Home() {
     const [posts, setPosts] = useState([])
@@ -14,7 +12,7 @@ function Home() {
             }
         })
     }, [])
-
+  
     if (posts.length === 0) {
         return (
             <div className="w-full py-8 mt-4 text-center">
@@ -36,7 +34,7 @@ function Home() {
                 <div className='flex flex-wrap'>
                     {posts.map((post) => (
                         <div key={post.$id} className='p-2 w-1/4'>
-                            <Post {...post} />
+                            <PostCard {...post} />
                         </div>
                     ))}
                 </div>
